@@ -1,4 +1,25 @@
+//test empty input
+function doesNotPassValidations(name,msg) {
+    if (!name && !msg) {
+        alert('Both fields are empty! You must have misclicked \'Post your comment\'.');
+        return true;
+    }
 
+    if (!name) {
+        alert('A girl has no name?');
+        return true;
+    }
+
+    if (!msg) {
+        alert('You forgot to include a message!');
+    }
+
+    if (msg.length > 280){
+        alert('Write less. Ain\'t nobody got time fo\' dat.');
+        return true;
+    }
+    return false;
+}
 // add event handler
 function submitComment(){
     // gather data
@@ -6,6 +27,12 @@ function submitComment(){
     const name = inputField.value;
     const textArea = document.getElementById('msg');
     const msg = textArea.value;
+
+    //Check for errors
+
+    if(doesNotPassValidations(name,msg)) {
+        return null;
+    }
 
     // create new elements
     const comment = document.createElement('section');
@@ -21,11 +48,9 @@ function submitComment(){
     
     //display a comment
     const commentSection = document.getElementById('comments');
-    console.log(commentSection);
     commentSection.appendChild(comment);
 
     //reset the input fields
     inputField.value = null;
-    textArea.value = null;
+    textArea.value = null;       
 }
-
