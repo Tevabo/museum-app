@@ -46,4 +46,7 @@ h1 {
     #gallery {
         flex-flow: column;
     }
+    .objectOfArt:hover {
+        max-width: 80%;
+    }
 }
