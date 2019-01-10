@@ -323,3 +323,24 @@ const data = {
       }
     ]
   }
+const paintings = data.artObjects;
+function iterateOverPaintings() {
+    for (let i = 0; i<paintings.length; i++){
+
+        const newElement = document.createElement("a");
+        const newImg = document.createElement("img");
+        const imageUrl = paintings[i].webImage.url;
+
+        newElement.href = "./pages/detail-page.html";        
+        newImg.alt = paintings[i].title;
+        newImg.className = "artObject";        
+        newImg.src = imageUrl       
+        newElement.appendChild(newImg)
+
+        const gallery = document.getElementById("gallery");
+        gallery.appendChild(newElement)       
+    };
+};
+
+
+iterateOverPaintings();
