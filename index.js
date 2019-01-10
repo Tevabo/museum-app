@@ -324,10 +324,16 @@ const data = {
     ]
   }
 const paintings = data.artObjects;
-function iterateOverPaintings() {
-    for (let i = 0; i<paintings.length; i++){
 
-        const newElement = document.createElement("a");
+
+for (i = 0; i<paintings.length; i++){
+    const currentPainting = paintings[i];
+    displayPainting(currentPainting);
+};
+
+function displayPainting(painting){
+
+    const newElement = document.createElement("a");
         const newImg = document.createElement("img");
         const imageUrl = paintings[i].webImage.url;
 
@@ -338,9 +344,5 @@ function iterateOverPaintings() {
         newElement.appendChild(newImg)
 
         const gallery = document.getElementById("gallery");
-        gallery.appendChild(newElement)       
-    };
-};
-
-
-iterateOverPaintings();
+        gallery.appendChild(newElement)    
+}
